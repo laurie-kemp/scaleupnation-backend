@@ -9,12 +9,16 @@ import DatabaseController from "./database/controller";
 import LoginController from "./logins/controller";
 import UpdateController from "./updates/controller";
 
-
 const app = new Koa();
 
 useKoaServer(app, {
   cors: true,
-  controllers: [UserController, DatabaseController, LoginController, UpdateController],
+  controllers: [
+    UserController,
+    DatabaseController,
+    LoginController,
+    UpdateController
+  ],
 
   authorizationChecker: (action: Action) => {
     const header: string = action.request.headers.authorization;
@@ -45,5 +49,7 @@ useKoaServer(app, {
 });
 
 setupDb()
-  .then(_ => app.listen(4000, () => console.log("Listening on port 4000")))
+  .then(_ =>
+    app.listen(process.env, PORT, () => console.log("Listening on port 4000"))
+  )
   .catch(err => console.error(err));
