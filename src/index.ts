@@ -50,6 +50,6 @@ useKoaServer(app, {
 
 setupDb()
   .then(_ =>
-    app.listen(process.env, PORT, () => console.log("Listening on port 4000"))
+    app.listen(process.env.PORT, () => console.log("Listening on port 4000"))
   )
   .catch(err => console.error(err));
