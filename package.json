@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "build": "tsc",
+    "postinstall": "npm run build"
   },
   "name": "server",
   "version": "1.0.0",
